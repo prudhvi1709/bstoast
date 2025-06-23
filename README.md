@@ -19,7 +19,7 @@ bstoast("Hello World!");
 // Advanced usage with icon
 bstoast({
   title: "Success",
-  body: "Operation completed",
+  body: "Operation <strong>completed</strong>",
   color: "success",
   icon: "check-circle",
   timeout: 3000,
@@ -40,8 +40,8 @@ Creates and displays a Bootstrap toast notification.
 
 | Option     | Type            | Default       | Description                                                                |
 | ---------- | --------------- | ------------- | -------------------------------------------------------------------------- |
-| `title`    | string          | "Alert"       | Toast header text                                                          |
-| `body`     | string          | required      | Toast message content                                                      |
+| `title`    | string          | "Alert"       | Toast header text (HTML allowed)                                           |
+| `body`     | string          | required      | Toast message content (HTML allowed)                                       |
 | `color`    | string          | "primary"     | Bootstrap color variant (primary, success, danger, warning, info)          |
 | `append`   | boolean         | true          | If true, adds new toast to existing ones. If false, clears previous toasts |
 | `timeout`  | number \| false | 5000          | Auto-hide delay in milliseconds. Set to false to disable auto-hide         |
@@ -76,7 +76,7 @@ bstoast({
 
 // Disable auto-hide
 bstoast({
-  title: "Important",
+  title: '<h2 class="h5">Important</h2>',
   body: "Please read this carefully",
   timeout: false,
 });

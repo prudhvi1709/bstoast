@@ -22,7 +22,7 @@ describe("bstoast", () => {
     document.body.innerHTML = "";
 
     // Mock Bootstrap
-    window.bootstrap = {
+    globalThis.bootstrap = {
       Toast: vi.fn().mockImplementation(() => ({
         show: vi.fn(),
       })),
@@ -100,20 +100,20 @@ describe("bstoast", () => {
   it("should handle custom timeout", () => {
     bstoast({ body: "Test", timeout: 10000 });
 
-    expect(window.bootstrap.Toast).toHaveBeenCalledWith(
+    expect(globalThis.bootstrap.Toast).toHaveBeenCalledWith(
       expect.any(HTMLElement),
       expect.objectContaining({ delay: 10000 }),
     );
   });
 
-  it("should handle HTML escaping", async () => {
-    bstoast({ body: '<script>alert("xss")</script>' });
+  it("should handle HTML", async () => {
+    bstoast({ body: "<strong>bold</strong> text" });
     const container = await waitForToast();
 
     const toast = container.querySelector(".toast");
     expect(toast).toBeTruthy();
     const toastBody = toast.querySelector(".toast-body");
-    expect(toastBody.innerHTML).toBe('&lt;script&gt;alert("xss")&lt;/script&gt;');
+    expect(toastBody.innerHTML).toBe("<strong>bold</strong> text");
   });
 
   it("should throw error when body is missing", () => {
@@ -121,7 +121,7 @@ describe("bstoast", () => {
   });
 
   it("should throw error when Bootstrap is not available", () => {
-    delete window.bootstrap;
+    delete globalThis.bootstrap;
     expect(() => bstoast({ body: "Test" })).toThrow("bstoast: Bootstrap 5 is required");
   });
 
