@@ -24,23 +24,17 @@
     "bootstrap": "^5.0.0"
   },
   "scripts": {
-    "format:js": "prettier --print-width=120 '**/*.js' --write",
-    "format:md": "prettier --print-width=120 '**/*.md' --write",
-    "format:html": "js-beautify '**/*.html' --type html --replace --indent-size 2 --max-preserve-newlines 1 --end-with-newline",
-    "format": "npm run format:js && npm run format:md && npm run format:html",
+    "lint:oxlint": "npx -y oxlint --fix",
+    "lint:js-md": "npx -y prettier@3.5 --print-width 120 --write '**/*.js' '!**/*.min.js' '**/*.md'",
+    "lint:html": "npx -y js-beautify@1 '**/*.html' --type html --replace --indent-size 2 --max-preserve-newlines 1 --end-with-newline",
+    "lint": "npm run lint:js-md && npm run lint:html",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
     "@vitest/coverage-v8": "^1.3.1",
-    "eslint": "^9.29.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.0",
     "happy-dom": "^13.3.8",
-    "js-beautify": "^1.15.4",
     "jsdom": "^26.1.0",
-    "prettier": "3.5",
     "vitest": "^1.3.1"
   }
 }

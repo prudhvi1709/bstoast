@@ -11,17 +11,17 @@ npm install bstoast
 ## Quick Start
 
 ```js
-import { bstoast } from 'https://cdn.jsdelivr.net/npm/bstoast';
+import { bstoast } from "https://cdn.jsdelivr.net/npm/bstoast";
 
 // Simple usage
-bstoast('Hello World!');
+bstoast("Hello World!");
 
 // Advanced usage with icon
 bstoast({
-  title: 'Success',
-  body: 'Operation completed',
-  color: 'success',
-  icon: 'check-circle',
+  title: "Success",
+  body: "Operation completed",
+  color: "success",
+  icon: "check-circle",
   timeout: 3000,
 });
 ```
@@ -61,32 +61,32 @@ Creates and displays a Bootstrap toast notification.
 
 ```js
 // Simple string message
-bstoast('Operation successful!');
+bstoast("Operation successful!");
 
 // Full configuration with icon and position
 bstoast({
-  title: 'Error',
-  body: 'Something went wrong',
-  color: 'danger',
-  icon: 'exclamation-triangle',
+  title: "Error",
+  body: "Something went wrong",
+  color: "danger",
+  icon: "exclamation-triangle",
   append: true,
   timeout: 10000,
-  position: 'bottom-0 start-0', // Show toast at bottom start
+  position: "bottom-0 start-0", // Show toast at bottom start
 });
 
 // Disable auto-hide
 bstoast({
-  title: 'Important',
-  body: 'Please read this carefully',
+  title: "Important",
+  body: "Please read this carefully",
   timeout: false,
 });
 
 // Using Bootstrap Icons
 bstoast({
-  title: 'Info',
-  body: 'New update available',
-  icon: 'info-circle',
-  color: 'info',
+  title: "Info",
+  body: "New update available",
+  icon: "info-circle",
+  color: "info",
 });
 ```
 
@@ -133,11 +133,13 @@ The project uses [Vitest](https://vitest.dev/) for testing with [Happy DOM](http
 - Edge cases
 
 To run tests in watch mode:
+
 ```bash
 npm test
 ```
 
 To generate a coverage report:
+
 ```bash
 npm run test:coverage
 ```
